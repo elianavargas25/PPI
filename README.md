@@ -15,6 +15,8 @@ Antecedentes
 •	Vivir al límite de tu capacidad financiera.
 •	No planear para el futuro.
 
+Al pasar el tiempo se ha evidenciado un déficit en gran parte de la población en cuanto a la administración de sus finanzas, causando así una desmejora en la calidad de vida de los pobladores. El 90% de la población en el trascurso del mes tiene problemas al momento de pagar las cuentas pendientes. El otro 10% tiene un salario bien remunerado.
+
 DESCRIPCIÓN DEL PROBLEMA:
 
 A medida que pasa el tiempo, los gastos en las personas van incrementando de manera exponencial. Es por eso que se debe controlar los  ingresos y egresos personales, ya que el mal manejo de estas pueden causar endeudamientos innecesarios, estrés, atraso en facturas pendientes, entre otros.
@@ -61,11 +63,4 @@ Sirve para tener una visión más detallada de los movimientos que tenemos con n
 
 ¿Por qué hacerlo?
 Es importante tener una mejor planeación de nuestras finanzas, para monitorear los gastos que tenemos en un determinado tiempo, y generar ahorros para cumplrir objetivos que se tengan a corto, mediano o largo plazo.
-
-
-
-
-
-
-
 
