@@ -15,11 +15,12 @@ Antecedentes
 •	Vivir al límite de tu capacidad financiera.
 •	No planear para el futuro.
 
-Al pasar el tiempo se ha evidenciado un déficit en gran parte de la población en cuanto a la administración de sus finanzas, causando así una desmejora en la calidad de vida de los pobladores. El 90% de la población en el trascurso del mes tiene problemas al momento de pagar las cuentas pendientes. El otro 10% tiene un salario bien remunerado.
-
 DESCRIPCIÓN DEL PROBLEMA:
 
-A medida que pasa el tiempo, los gastos en las personas van incrementando de manera exponencial. Es por eso que se debe controlar los  ingresos y egresos personales, ya que el mal manejo de estas pueden causar endeudamientos innecesarios, estrés, atraso en facturas pendientes, entre otros.
+“Compramos lo que no necesitamos con el dinero que no tenemos”.
+Llevar un estilo de vida desordenado en las finanzas les hace perder la paz, no pueden conciliar el sueño, no hay sueldo que alcance para cumplir con los compromisos, las deudas les agobian y los acreedores los acosan, no tienen capacidad de ahorros, trabajan mucho, pero cada día ven que no hay tiempo para disfrutar de la vida y poder darse unas vacaciones merecidas, se endeudan para pagar las deudas pendientes, y viven al límite de su capacidad financiera.
+
+Al pasar el tiempo se ha evidenciado un déficit en gran parte de la población en cuanto a la administración de sus finanzas, causando así una desmejora en la calidad de vida de los pobladores. El 90% de la población en el transcurso del mes tiene problemas al momento de pagar las cuentas pendientes; el otro 10% tiene un salario bien remunerado.
 
 SOLUCIÓN 
 
@@ -28,34 +29,42 @@ El sistema enviará notificaciones recordando los saldos pendientes que están p
 
 Módulos
 
+
 Seguridad:
-•	Gestión de perfiles
-•	Gestión de usuarios
-•	Restablecimiento de contraseña
-•	Cambio de contraseña
-•	Inicio de sesión.
+Gestión de perfiles
+Gestión de usuarios
+Restablecimiento de contraseña
+Cambio de contraseña
+Inicio de sesión.
 
 Ingresos:
-•	Gestión de ingresos
-•	Movimientos
+Gestión de ingresos
+Histórico de los ingresos mes a mes por año
+Gráfica de los ingresos
 
 Egresos:
-•	Gestión de egresos
-•	Obligaciones (Deudas, Facturas pendientes, Préstamos, entre otros)
-•	Movimientos
+Gestión de egresos: Salidas a comer, cine, viajes, entre otros.
+Gestión de gastos fijos: -Facturas, transporte, alimentación, entre otros.
+Obligaciones: 
+Gestión de préstamos: 
+- Gráfica con relación al porcentaje de interés mensual, abono a capital, mora.
+- Gráfica con relación al porcentaje efectivo anual, y total de la deuda.
+Histórico de los gastos mes a mes por año
+Gráfica de los egresos
 
 Movimientos:
-•	Ingresos VS Egresos
+Gráficas de Ingresos Vs Egresos
 
 Reserva:
-•	Fondos
+Fondos
 
 Administración:
-•	Parámetros
-•	Auditoría
+Parámetros(Se podrá parametrizar las fechas de corte de las facturas, el servidor de correo para el envío de las notificaciones)
+Se dará una contraseña por defecto la cual el usuario podrá cambiar luego.
 
 Notificaciones:
-•	Notificaciones
+Notificaciones 
+
 
 JUSTIFICACIÓN
 ¿Para qué sirve?
