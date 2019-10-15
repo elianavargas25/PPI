@@ -1,21 +1,19 @@
-const {userMock } = require('../utils/mocks/movies');
+const MongoLib = require('../lib/mongo');
 
-class UserServices{
-    async getUsers(){
-        const users = await Promise.resolve(userMock);
-        return users || [];
+class UsersService  {
+    
+    constructor(){
+        this.collection = 'user';
+        this.mongoDB = new MongoLib();
+
     }
 
-   
-    async getUser(){
-        const user = await Promise.resolve(userMock[0]);
-        return user || {};
+    async getUsers ( { tags }){
+        const query = tags && {$in : {tags}}  
+        const users = await this.mongoDB.getAll(this.collection,query)
+        return users || []
     }
 
-    async createUser(){
-        const createUserId = await Promise.resolve(userMock[2].id);
-        return createUserId;
-    }
 }
 
-module.exports=MoviesServices;
+module.exports = ProductsService;
