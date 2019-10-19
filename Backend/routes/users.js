@@ -30,10 +30,10 @@ function usersApi(app) {
         //en este caso el id viene como parámetro en la URL
         const { userId } = req.params;
         try{
-            const users = await usersService.getUser( { userId });
+            const user = await usersService.getUser( { userId });
 
             res.status(200).json({
-                data: users,
+                data: user,
                 message: 'user retrieved'
             })
         }catch(err){

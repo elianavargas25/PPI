@@ -1,4 +1,4 @@
-const MongoLib = require('../lib/mongo');
+const MongoLib = require('../libs/mongo');
 
 class UsersService  {
     
@@ -13,7 +13,7 @@ class UsersService  {
         const users = await this.mongoDB.getAll(this.collection,query)
         return users || []
     }
-    async getUser( { movieId }){
+    async getUser( { userId }){
         const user = await this.mongoDB.get(this.collection, userId);
         return user || {};
     }
