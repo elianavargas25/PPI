@@ -5,12 +5,12 @@ const USER = encodeURIComponent(config.dbUser);
 const PASSWORD = encodeURIComponent(config.dbPassword);
 const DB_NAME = config.dbName;
 
-const MONGO_URI = `mongodb+srv://${USER}:${PASSWORD}@${config.dbHost}/${DB_NAME}?retryWrites=true&w=majority`;
+const MONGO_URI = `mongodb+srv://admin:admin@cluster0-gzppv.mongodb.net/FINANZAS?retryWrites=true&w=majority`;
 
 class MongoLib {
   constructor() {
     this.client = new MongoClient(MONGO_URI, { useNewUrlParser: true });
-    this.dbName = DB_NAME;
+    this.dbName = 'FINANZAS';
   }
 
   connect() {
