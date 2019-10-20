@@ -1,4 +1,4 @@
-const MongoLib = require('../lib/mongo');
+const MongoLib = require('../libs/mongo');
 
 class IngresosService  {
     
@@ -18,7 +18,7 @@ class IngresosService  {
         return ingreso || {};
     }
 
-    async createIngresos( { ingreso }){
+    async createIngreso( { ingreso }){
         const createdIngresoId = await this.mongoDB.create(this.collection, ingreso);
         return createdIngresoId;
     }

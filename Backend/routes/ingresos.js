@@ -30,10 +30,10 @@ function ingresosApi(app) {
         //en este caso el id viene como parámetro en la URL
         const { ingresoId } = req.params;
         try{
-            const ingresos = await ingresosService.getUser( { ingresoId });
+            const ingreso = await ingresosService.getIngreso( { ingresoId });
 
             res.status(200).json({
-                data: ingresos,
+                data: ingreso,
                 message: 'ingreso retrieved'
             })
         }catch(err){
@@ -45,7 +45,7 @@ function ingresosApi(app) {
         //sacamos del cuerpo (body) de la petición la película.
         const { body : ingreso } = req;
         try{
-            const createdUserId = await ingresosService.createIngreso( { ingreso});
+            const createdIngresoId = await ingresosService.createIngreso( { ingreso});
 
             res.status(201).json({
                 data: createdIngresoId,
@@ -75,7 +75,7 @@ function ingresosApi(app) {
     router.delete("/:ingresoId", async function (req, res, next){
         const { ingresoId } = req.params;
         try{
-            const deletedUserId = await ingresosService.deleteIngreso({ ingresoId });
+            const deletedIngresoId = await ingresosService.deleteIngreso({ ingresoId });
 
             res.status(200).json({
                 data: deletedIngresoId,
