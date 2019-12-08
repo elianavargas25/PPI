@@ -9,13 +9,13 @@ function sesionApi(app) {
     //instanciando un nuevo servicio
     const inicioService = new InicioService();
 
-    router.get("/", async function (req, res, next){
+    router.get("/", async function(req, res, next) {
         //los tags vienen del query de la url
-        const  tags  = req.query;
-        try{
+        const tags = req.query;
+        try {
             //filtramos las usuarios que queremos ver por unos tags
-            const users = await inicioService.getInicio( tags );
-            if(users["_id"]) {
+            const users = await inicioService.getInicio(tags);
+            if (users["_id"]) {
                 res.status(200).json({
                     data: users,
                     message: 'user alredy exist',
@@ -27,9 +27,7 @@ function sesionApi(app) {
                     status: 500
                 })
             }
-
-            
-        }catch(err){
+        } catch (err) {
             next(err);
         }
     });
