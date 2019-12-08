@@ -33,6 +33,11 @@ class UsersService  {
         return deletedUserId;
     }
 
+    async getInicio(data){
+        const inicio = await this.mongoDB.inicio(this.collection, data.username, data.password);
+        return inicio || {};
+    }
+
 }
 
 module.exports = UsersService;
