@@ -39,6 +39,12 @@ class MongoLib {
     });
   }
 
+  inicio(collection, userName, userPassword) {
+    return this.connect().then(db => {
+      return db.collection(collection).findOne({name: userName, password: userPassword});
+    });
+  }
+
   get(collection, id) {
     return this.connect().then(db => {
       return db.collection(collection).findOne({ _id: ObjectId(id) });
