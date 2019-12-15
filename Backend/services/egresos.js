@@ -10,26 +10,26 @@ class EgresosService  {
 
     async getEgresos ( { tags }){
         const query = tags && {$in : {tags}}  
-        const ingresos = await this.mongoDB.getAll(this.collection,query)
-        return ingresos || []
+        const egresos = await this.mongoDB.getAll(this.collection,query)
+        return egresos || []
     }
-    async getEgreso( { ingresoId }){
-        const ingreso = await this.mongoDB.get(this.collection, ingresoId);
-        return ingreso || {};
+    async getEgreso( { egresoId }){
+        const egreso = await this.mongoDB.get(this.collection, egresoId);
+        return egreso || {};
     }
 
-    async createEgreso( { ingreso }){
-        const createdEgresoId = await this.mongoDB.create(this.collection, ingreso);
+    async createEgreso( { egreso }){
+        const createdEgresoId = await this.mongoDB.create(this.collection, egreso);
         return createdEgresoId;
     }
 
-    async udpateEgreso({ ingresoId, ingreso } = { }){
-        const updatedEgresoId = await this.mongoDB.update(this.collection, ingresoId, ingreso);
+    async udpateEgreso({ egresoId, egreso } = { }){
+        const updatedEgresoId = await this.mongoDB.update(this.collection, egresoId, egreso);
         return updatedEgresoId;
     }
 
-    async deleteEgreso({ ingresoId }){
-        const deletedEgresoId = await this.mongoDB.delete(this.collection, ingresoId);
+    async deleteEgreso({ egresoId }){
+        const deletedEgresoId = await this.mongoDB.delete(this.collection, egresoId);
         return deletedEgresoId;
     }
 
