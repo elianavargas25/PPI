@@ -10,6 +10,7 @@ const usersApi = require('./routes/users');
 const ingresosApi = require('./routes/ingresos');
 const sesionApi = require('./routes/sesion');
 
+const egresosApi = require('./routes/egresos');
 //body-parser
 app.use(express.json());
 app.use(cors());
@@ -20,6 +21,7 @@ app.use(morgan('combined'));
 usersApi(app);
 ingresosApi(app);
 sesionApi(app);
+egresosApi(app);
 
 app.listen(config.port, ()=> {
     console.log(`Escuchando por el puerto http://localhost:${config.port}`);
