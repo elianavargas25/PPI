@@ -1,14 +1,15 @@
-const express= require('express');
+const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const app = express();
 const morgan = require('morgan');
 
-const  {config } = require('./config/index');
+const { config } = require('./config/index');
 
 const usersApi = require('./routes/users');
 const ingresosApi = require('./routes/ingresos');
 const sesionApi = require('./routes/sesion');
+const cambio = require('./routes/cambio');
 
 const egresosApi = require('./routes/egresos');
 //body-parser
@@ -22,7 +23,8 @@ usersApi(app);
 ingresosApi(app);
 sesionApi(app);
 egresosApi(app);
+cambio(app);
 
-app.listen(config.port, ()=> {
+app.listen(config.port, () => {
     console.log(`Escuchando por el puerto http://localhost:${config.port}`);
 })

@@ -8,74 +8,74 @@ const DB_NAME = config.dbName;
 const MONGO_URI = `mongodb+srv://admin:admin@cluster0-gzppv.mongodb.net/FINANZAS?retryWrites=true&w=majority`;
 
 class MongoLib {
-  constructor() {
-    this.client = new MongoClient(MONGO_URI, { useNewUrlParser: true });
-    this.dbName = 'FINANZAS';
-  }
-
-  connect() {
-    if (!MongoLib.connection) {
-      MongoLib.connection = new Promise((resolve, reject) => {
-        this.client.connect(err => {
-          if (err) {
-            reject(err);
-          }
-
-          console.log('Connected succesfully to mongo');
-          resolve(this.client.db(this.dbName));
-        });
-      });
+    constructor() {
+        this.client = new MongoClient(MONGO_URI, { useNewUrlParser: true });
+        this.dbName = 'FINANZAS';
     }
 
-    return MongoLib.connection;
-  }
+    connect() {
+        if (!MongoLib.connection) {
+            MongoLib.connection = new Promise((resolve, reject) => {
+                this.client.connect(err => {
+                    if (err) {
+                        reject(err);
+                    }
 
-  getAll(collection, query) {
-    return this.connect().then(db => {
-      return db
-        .collection(collection)
-        .find(query)
-        .toArray();
-    });
-  }
+                    console.log('Connected succesfully to mongo');
+                    resolve(this.client.db(this.dbName));
+                });
+            });
+        }
 
-  inicio(collection, userName, userPassword) {
-    return this.connect().then(db => {
-      return db.collection(collection).findOne({name: userName, password: userPassword});
-    });
-  }
+        return MongoLib.connection;
+    }
 
-  get(collection, id) {
-    return this.connect().then(db => {
-      return db.collection(collection).findOne({ _id: ObjectId(id) });
-    });
-  }
+    getAll(collection, query) {
+        return this.connect().then(db => {
+            return db
+                .collection(collection)
+                .find(query)
+                .toArray();
+        });
+    }
 
-  create(collection, data) {
-    return this.connect()
-      .then(db => {
-        return db.collection(collection).insertOne(data);
-      })
-      .then(result => result.insertedId);
-  }
+    inicio(collection, userName, userPassword) {
+        return this.connect().then(db => {
+            return db.collection(collection).findOne({ UserName: userName, password: userPassword });
+        });
+    }
 
-  update(collection, id, data) {
-    return this.connect()
-      .then(db => {
-        return db
-          .collection(collection)
-          .updateOne({ _id: ObjectId(id) }, { $set: data }, { upsert: true });
-      })
-      .then(result => result.upsertedId || id);
-  }
+    get(collection, id) {
+        return this.connect().then(db => {
+            return db.collection(collection).findOne({ _id: ObjectId(id) });
+        });
+    }
 
-  delete(collection, id) {
-    return this.connect()
-      .then(db => {
-        return db.collection(collection).deleteOne({ _id: ObjectId(id) });
-      })
-      .then(() => id);
-  }
+    create(collection, data) {
+        return this.connect()
+            .then(db => {
+                return db.collection(collection).insertOne(data);
+            })
+            .then(result => result.insertedId);
+    }
+
+    update(collection, id, data) {
+        return this.connect()
+            .then(db => {
+                return db
+                    .collection(collection)
+                    .updateOne({ _id: ObjectId(id) }, { $set: data }, { upsert: true });
+            })
+            .then(result => result.upsertedId || id);
+    }
+
+    delete(collection, id) {
+        return this.connect()
+            .then(db => {
+                return db.collection(collection).deleteOne({ _id: ObjectId(id) });
+            })
+            .then(() => id);
+    }
 }
 
 module.exports = MongoLib;
