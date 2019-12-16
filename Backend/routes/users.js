@@ -10,10 +10,10 @@ function usersApi(app) {
     const usersService = new UsersService();
 
     //Obteniendo toda la lista de usuarios
-    router.get("/", async function (req, res, next){
+    router.get("/", async function(req, res, next) {
         //los tags vienen del query de la url
         const { tags } = req.query;
-        try{
+        try {
             //filtramos las usuarios que queremos ver por unos tags
             const users = await usersService.getUsers({ tags });
 
@@ -21,72 +21,72 @@ function usersApi(app) {
                 data: users,
                 message: 'users listed'
             })
-        }catch(err){
+        } catch (err) {
             next(err);
         }
     });
     //Obteniendo un usuario en particular
-    router.get("/:userId", async function (req, res, next){
+    router.get("/:userId", async function(req, res, next) {
         //en este caso el id viene como parámetro en la URL
         const { userId } = req.params;
-        try{
-            const user = await usersService.getUser( { userId });
+        try {
+            const user = await usersService.getUser({ userId });
 
             res.status(200).json({
                 data: user,
                 message: 'user retrieved'
             })
-        }catch(err){
+        } catch (err) {
             next(err);
         }
     });
     //Creando las usuarios
-    router.post("/", async function (req, res, next){
+    router.post("/", async function(req, res, next) {
         //sacamos del cuerpo (body) de la petición la película.
-        const { body : user } = req;
-        try{
-            const createdUserId = await usersService.createUser( { user});
+        const { body: user } = req;
+        try {
+            const createdUserId = await usersService.createUser({ user });
 
             res.status(201).json({
                 data: createdUserId,
                 message: 'users created'
             })
-        }catch(err){
+        } catch (err) {
             next(err);
         }
     });
     //Actualizando una película
-    router.put("/:userId", async function (req, res, next){
+    router.put("/:userId", async function(req, res, next) {
         //con el put recibo dos aspectos, el cuerpo y el parametro (id de user a actualizar)
-        const { body : user } = req;
+        const { body: user } = req;
         const { userId } = req.params;
 
-        try{
-            const updatedUserId = await usersService.udpateUser({ userId , user });
+        try {
+            const updatedUserId = await usersService.udpateUser({ userId, user });
             res.status(200).json({
                 data: updatedUserId,
                 message: 'user updated'
             })
-        }catch(err){
+        } catch (err) {
             next(err);
         }
     });
     //Eliminar usuarios
-    router.delete("/:userId", async function (req, res, next){
+    router.delete("/:userId", async function(req, res, next) {
         const { userId } = req.params;
-        try{
+        try {
             const deletedUserId = await usersService.deleteUser({ userId });
 
             res.status(200).json({
                 data: deletedUserId,
                 message: 'user deleted'
             })
-        }catch(err){
+        } catch (err) {
             next(err);
         }
     });
 
-    
+
 
 
 
