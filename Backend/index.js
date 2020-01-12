@@ -10,7 +10,7 @@ const usersApi = require('./routes/users');
 const ingresosApi = require('./routes/ingresos');
 const sesionApi = require('./routes/sesion');
 const cambio = require('./routes/cambio');
-
+const categoria = require('./routes/categorias');
 const egresosApi = require('./routes/egresos');
 //body-parser
 app.use(express.json());
@@ -24,6 +24,7 @@ ingresosApi(app);
 sesionApi(app);
 egresosApi(app);
 cambio(app);
+categoria(app);
 
 app.listen(config.port, () => {
     console.log(`Escuchando por el puerto http://localhost:${config.port}`);
