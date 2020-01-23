@@ -1,6 +1,6 @@
 const express = require('express');
 //importando nuestros servicios
-const CategoriasService = require('../services/categorias');
+const CategoriasService = require('../services/categoria');
 
 function categoriasApi(app) {
     const router = express.Router();
