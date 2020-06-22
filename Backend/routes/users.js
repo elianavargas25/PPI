@@ -1,6 +1,7 @@
 const express = require('express');
 //importando nuestros servicios
 const UsersService = require('../services/users');
+const { verificaToken } = require('../middlewares/authentication');
 
 function usersApi(app) {
     const router = express.Router();

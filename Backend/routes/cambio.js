@@ -1,6 +1,7 @@
 const express = require('express');
 //importando nuestros servicios
 const updatePass = require('../services/users');
+const { verificaToken } = require('../middlewares/authentication');
 
 function cambioContra(app) {
     const router = express.Router();
@@ -8,8 +9,11 @@ function cambioContra(app) {
 
     //instanciando un nuevo servicio
     const updatePas = new updatePass();
-    router.get("/:userId", async function(req, res, next) {
+    router.get("/", verificaToken, async function(req, res, next) {
         //en este caso el id viene como parámetro en la URL
+        return res.json({
+            user: req.usuario
+        });
         const { userId } = req.params;
         try {
             const user = await updatePas.getUser({ userId });
@@ -23,7 +27,7 @@ function cambioContra(app) {
         }
     });
 
-    router.put("/:userId", async function(req, res, next) {
+    router.put("/contra", verificaToken, async function(req, res, next) {
         //con el put recibo dos aspectos, el cuerpo y el parametro (id de ingreso a actualizar)
         const { body: user } = req;
         const { userId } = req.params;
