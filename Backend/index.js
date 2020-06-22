@@ -11,7 +11,6 @@ const ingresosApi = require('./routes/ingresos');
 const sesionApi = require('./routes/sesion');
 const cambio = require('./routes/cambio');
 const categoria = require('./routes/categorias');
-
 const egresosApi = require('./routes/egresos');
 //body-parser
 app.use(express.json());
