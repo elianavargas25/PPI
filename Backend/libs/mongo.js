@@ -9,7 +9,10 @@ const MONGO_URI = `mongodb+srv://admin:admin@cluster0-gzppv.mongodb.net/FINANZAS
 
 class MongoLib {
     constructor() {
-        this.client = new MongoClient(MONGO_URI, { useNewUrlParser: true });
+        this.client = new MongoClient(MONGO_URI, {
+            useUnifiedTopology: true,
+            useNewUrlParser: true
+        });
         this.dbName = 'FINANZAS';
     }
 
@@ -64,7 +67,7 @@ class MongoLib {
             .then(db => {
                 return db
                     .collection(collection)
-                    .updateOne({ _id: ObjectId(id) }, { $set: data }, { upsert: true });
+                    .updateOne({ _id: ObjectId(id) }, { $set: data }, { upsert: true }, { strict: false });
             })
             .then(result => result.upsertedId || id);
     }
