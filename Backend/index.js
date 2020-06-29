@@ -12,6 +12,7 @@ const sesionApi = require('./routes/sesion');
 const cambio = require('./routes/cambio');
 const categoria = require('./routes/categorias');
 const egresosApi = require('./routes/egresos');
+const tipoApi = require('./routes/tipos');
 //body-parser
 app.use(express.json());
 app.use(cors());
@@ -25,6 +26,7 @@ sesionApi(app);
 egresosApi(app);
 cambio(app);
 categoria(app);
+tipoApi(app)
 
 app.listen(config.port, () => {
     console.log(`Escuchando por el puerto http://localhost:${config.port}`);
