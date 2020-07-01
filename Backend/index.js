@@ -12,7 +12,7 @@ const sesionApi = require('./routes/sesion');
 const cambio = require('./routes/cambio');
 const categoria = require('./routes/categorias');
 const egresosApi = require('./routes/egresos');
-const tipoApi = require('./routes/tipos');
+const tipoApi = require('./routes/tipo');
 //body-parser
 app.use(express.json());
 app.use(cors());
