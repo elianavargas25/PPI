@@ -8,7 +8,7 @@ class cambioService {
 
     }
 
-    async updateContra({ userId, user } = {}) {
+    async updateContra({ userId, user }) {
         const cambio = await this.mongoDB.update(this.collection, userId, user);
         return cambio;
     }

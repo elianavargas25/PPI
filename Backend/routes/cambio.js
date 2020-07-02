@@ -13,6 +13,7 @@ function cambioContra(app) {
 
     router.put("/:userId", async function(req, res, next) {
         const { body: user } = req;
+        const { userId } = req.params;
 
         try {
             const usuario = await updateCon.updateContra({ userId, user });
