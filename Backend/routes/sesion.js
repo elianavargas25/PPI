@@ -1,4 +1,6 @@
 const express = require('express');
+const jwt = require('jsonwebtoken');
+const { config } = require('../config/index');
 //importando nuestros servicios
 const InicioService = require('../services/users');
 
@@ -15,10 +17,14 @@ function sesionApi(app) {
         try {
             //filtramos las usuarios que queremos ver por unos tags
             const users = await inicioService.getInicio(tags);
+            let token = jwt.sign({
+                usuario: users
+            }, config.seed, { expiresIn: 60 * 60 * 24 * 1 });
             if (users["_id"]) {
                 res.status(200).json({
                     data: users,
                     message: 'user alredy exist',
+                    token,
                     status: 200
                 })
             } else {

@@ -1,6 +1,7 @@
 const express = require('express');
 //importando nuestros servicios
 const UsersService = require('../services/users');
+const { verificaToken } = require('../middlewares/authentication');
 
 function usersApi(app) {
     const router = express.Router();
@@ -8,15 +9,10 @@ function usersApi(app) {
 
     //instanciando un nuevo servicio
     const usersService = new UsersService();
-
-    //Obteniendo toda la lista de usuarios
     router.get("/", async function(req, res, next) {
-        //los tags vienen del query de la url
         const { tags } = req.query;
         try {
-            //filtramos las usuarios que queremos ver por unos tags
             const users = await usersService.getUsers({ tags });
-
             res.status(200).json({
                 data: users,
                 message: 'users listed'
@@ -25,9 +21,7 @@ function usersApi(app) {
             next(err);
         }
     });
-    //Obteniendo un usuario en particular
     router.get("/:userId", async function(req, res, next) {
-        //en este caso el id viene como parámetro en la URL
         const { userId } = req.params;
         try {
             const user = await usersService.getUser({ userId });
@@ -55,12 +49,10 @@ function usersApi(app) {
             next(err);
         }
     });
-    //Actualizando una película
     router.put("/:userId", async function(req, res, next) {
-        //con el put recibo dos aspectos, el cuerpo y el parametro (id de user a actualizar)
         const { body: user } = req;
         const { userId } = req.params;
-
+        //console.log("==================> " + userId);
         try {
             const updatedUserId = await usersService.udpateUser({ userId, user });
             res.status(200).json({
